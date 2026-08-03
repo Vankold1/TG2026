@@ -1,0 +1,72 @@
+{
+    "numeric_log_columns": [
+        "td",
+        "ipkt",
+        "ibyt"
+    ],
+    "binary_flag_columns": [
+        "tcp_flag_fin",
+        "tcp_flag_syn",
+        "tcp_flag_rst",
+        "tcp_flag_psh",
+        "tcp_flag_ack",
+        "tcp_flag_urg",
+        "tcp_flag_ece",
+        "tcp_flag_cwr"
+    ],
+    "one_hot_columns": [
+        "pr",
+        "exp"
+    ],
+    "frequency_encoding_columns": [
+        "sp",
+        "dp",
+        "sas",
+        "das",
+        "stos",
+        "in_if",
+        "out_if"
+    ],
+    "ip_columns": [
+        "sa",
+        "da"
+    ],
+    "port_feature_columns": [
+        "sp",
+        "dp"
+    ],
+    "target_columns": [
+        "attack_a",
+        "attack_t"
+    ],
+    "auxiliary_columns": [
+        "dataset_name",
+        "attack_family"
+    ],
+    "predictor_candidate_columns": [
+        "td",
+        "sa",
+        "da",
+        "sp",
+        "dp",
+        "pr",
+        "tcp_flag_fin",
+        "tcp_flag_syn",
+        "tcp_flag_rst",
+        "tcp_flag_psh",
+        "tcp_flag_ack",
+        "tcp_flag_urg",
+        "tcp_flag_ece",
+        "tcp_flag_cwr",
+        "stos",
+        "ipkt",
+        "ibyt",
+        "in_if",
+        "out_if",
+        "sas",
+        "das",
+        "exp"
+    ],
+    "binary_target_column": "attack_a",
+    "multiclass_target_column": "attack_t"
+}
