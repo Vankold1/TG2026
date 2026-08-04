@@ -1,0 +1,14 @@
+{
+    "imbalance_strategies": [
+        "none",
+        "class_weight",
+        "smote",
+        "adasyn",
+        "smote_enn"
+    ],
+    "binary_oversampling_ratio": 0.5,
+    "multiclass_target_min_count": 50000,
+    "smote_k_neighbors": 5,
+    "adasyn_n_neighbors": 5,
+    "isolation_forest_note": "SMOTE, ADASYN, SMOTE+ENN y class_weight no aplican a Isolation Forest en este protocolo."
+}
