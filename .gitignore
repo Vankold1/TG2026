@@ -7,3 +7,4 @@ models/
 *.parquet
 *.pkl
 *.joblib
+*.pyc
