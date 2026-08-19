@@ -6,10 +6,20 @@
         "adasyn",
         "smote_enn"
     ],
-    "binary_oversampling_policy": "bounded",
-    "binary_oversampling_ratio_upper_bound": 0.5,
-    "binary_max_minority_multiplier": 1.5,
-    "binary_max_synthetic_samples": 150000,
+    "binary_oversampling_profiles": {
+        "conservative": {
+            "target_prevalence_approx": 0.0739,
+            "ratio_upper_bound": 0.5,
+            "max_minority_multiplier": 1.5,
+            "max_synthetic_samples": 150000
+        },
+        "moderate": {
+            "target_prevalence_approx": 0.15,
+            "ratio_upper_bound": 0.17647058823529413,
+            "max_minority_multiplier": 2.54,
+            "max_synthetic_samples": 1585000
+        }
+    },
     "multiclass_oversampling_policy": "bounded",
     "multiclass_target_count_upper_bound": 50000,
     "multiclass_max_class_multiplier": 1.5,

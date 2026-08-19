@@ -824,29 +824,20 @@ def build_resampler(
     y_train,
     imbalance_config,
     random_state=DEFAULT_RANDOM_STATE,
+    binary_profile="conservative",
 ):
     """
     Construye el remuestreador. none y class_weight retornan None porque no modifican las observaciones.
     """
-    valid_strategies = set(
-        imbalance_config[
-            "imbalance_strategies"
-        ]
-    )
+    valid_strategies = set(imbalance_config["imbalance_strategies"])
 
     if strategy_name not in valid_strategies:
         raise ValueError("Estrategia no válida: "f"{strategy_name}")
 
-    if task not in {
-        "binary",
-        "multiclass"
-    }:
+    if task not in {"binary", "multiclass"}:
         raise ValueError("task debe ser 'binary' o 'multiclass'.")
 
-    if strategy_name in {
-        "none",
-        "class_weight"
-    }:
+    if strategy_name in {"none", "class_weight"}:
         return None
 
     if not IMBLEARN_AVAILABLE:
@@ -857,22 +848,19 @@ def build_resampler(
         )
 
     if task == "binary":
-        sampling_strategy = (make_binary_sampling_strategy(
-                y=y_train,
-                target_ratio_upper_bound=(imbalance_config[
-                        "binary_oversampling_ratio_upper_bound"
-                    ]
-                ),
-                max_minority_multiplier=(imbalance_config[
-                        "binary_max_minority_multiplier"
-                    ]
-                ),
-                max_synthetic_samples=(imbalance_config[
-                        "binary_max_synthetic_samples"
-                    ]
-                ),
-                positive_label=1,
+        profiles = imbalance_config["binary_oversampling_profiles"]
+        if binary_profile not in profiles:
+            raise ValueError(
+                f"Perfil binario no válido: {binary_profile}. "
+                f"Disponibles: {list(profiles)}"
             )
+        binary_config = profiles[binary_profile]
+        sampling_strategy = make_binary_sampling_strategy(
+            y=y_train,
+            target_ratio_upper_bound=binary_config["ratio_upper_bound"],
+            max_minority_multiplier=binary_config["max_minority_multiplier"],
+            max_synthetic_samples=binary_config["max_synthetic_samples"],
+            positive_label=1,
         )
 
     else:
