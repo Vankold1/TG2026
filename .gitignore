@@ -9,3 +9,4 @@ models/
 *.joblib
 *.pyc
 *.npy
+*.png

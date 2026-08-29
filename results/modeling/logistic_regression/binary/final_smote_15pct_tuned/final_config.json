@@ -1,0 +1,14 @@
+{
+    "model": "logistic_regression",
+    "task": "binary",
+    "imbalance_strategy": "smote",
+    "smote_target_prevalence": 0.15,
+    "solver": "saga",
+    "penalty": "l1",
+    "C": 1.0,
+    "fit_intercept": true,
+    "max_iter": 1000,
+    "tol": 0.0001,
+    "threshold": 0.5,
+    "selection_metric": "PR-AUC + comportamiento operativo en VALID"
+}

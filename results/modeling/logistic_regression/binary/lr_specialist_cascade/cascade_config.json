@@ -1,0 +1,19 @@
+{
+    "global_model": "SMOTE 15% + LR L1 C=1",
+    "global_threshold": 0.5,
+    "specialist_thresholds": {
+        "http_f": 0.2941718995571137,
+        "udp_reaper_w": 0.9922778606414796,
+        "tcp_w32_w": 0.9419798851013185
+    },
+    "fpr_caps": {
+        "http_f": 0.0535,
+        "udp_reaper_w": 0.0545,
+        "tcp_w32_w": 0.06
+    },
+    "specialist_training": {
+        "http_f": "16071 attack + 250000 normal, class_weight=balanced",
+        "tcp_w32_w": "17003 attack + 250000 normal, class_weight=balanced",
+        "udp_reaper_w": "823 attack + 50000 normal, class_weight=balanced"
+    }
+}
