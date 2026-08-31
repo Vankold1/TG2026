@@ -1,0 +1,29 @@
+{
+    "global": {
+        "model": "LR + SMOTE 15%",
+        "penalty": "l1",
+        "C": 1.0,
+        "threshold": 0.5
+    },
+    "specialists": {
+        "http_f": {
+            "model": "LR one-vs-normal",
+            "threshold": 0.2941718995571137
+        },
+        "udp_reaper_w": {
+            "model": "LR one-vs-normal",
+            "threshold": 0.9922778606414796
+        },
+        "tcp_w32_w": {
+            "model": "LR one-vs-normal + hard-negative mining",
+            "threshold": 0.813825
+        }
+    },
+    "decision_order": [
+        "global",
+        "http_f",
+        "udp_reaper_w",
+        "tcp_w32_w"
+    ],
+    "final_validation_fpr_target": 0.059
+}
