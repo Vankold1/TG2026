@@ -1,0 +1,23 @@
+{
+    "task": "multiclass_attack_type",
+    "model": "logistic_regression",
+    "strategy": "none",
+    "solver": "saga",
+    "penalty": "l2",
+    "C": 1.0,
+    "fit_intercept": true,
+    "max_iter": 1000,
+    "tol": 0.0001,
+    "random_state": 42,
+    "target": "attack_t",
+    "classes": [
+        "icmp_f",
+        "icmp_smf",
+        "udp_f",
+        "http_f",
+        "tcp_w32_w",
+        "tcp_red_w",
+        "udp_reaper_w"
+    ],
+    "selection_metric": "macro_f1"
+}
