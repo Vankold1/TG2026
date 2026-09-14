@@ -10,3 +10,4 @@ models/
 *.pyc
 *.npy
 *.png
+*.npz
